@@ -1,13 +1,15 @@
-:root{
+:root {
     /* bg colors */
-    --bg-primary-color: rgba(52, 51, 51, 0.124);
+    --bg-primary-color: rgb(24, 24, 24);
     --bg-secondary-color: rgba(52, 51, 51, 0.124);
-    --bg-active-color: rgba(234, 231, 231, 0.937);
+    --bg-active-color: rgb(223, 215, 215);
+    --bg-danger-color: rgba(246, 82, 82, 0.862);
+    --bg-success-color: rgba(8, 149, 8, 0.816);
 
     /* text colors */
     --text-primary-color: #efefef;
     --text-secondary-color: #a5a4a4;
-    --text-active-color: #393939;
+    --text-active-color: #181818;
 
     /* padding variable */
     --padding-sm: 0.5rem;
@@ -37,10 +39,10 @@
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
 
-        /* border radius variable */
-        --border-radius-sm: 0.2rem;
-        --border-radius-md: 0.25rem;
-        --border-radius-lg: 0.3rem;
-        --border-radius-xl: 0.4rem;
-        --border-radius-2xl: 0.5rem;
-};
+    /* border radius variable */
+    --border-radius-sm: 0.2rem;
+    --border-radius-md: 0.25rem;
+    --border-radius-lg: 0.3rem;
+    --border-radius-xl: 0.4rem;
+    --border-radius-2xl: 0.5rem;
+}
