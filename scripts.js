@@ -61,6 +61,7 @@ const imageInput = document.querySelector("#image-input")
 const canvasCtx = imageCanvas.getContext("2d")
 const resetBtn = document.querySelector("#reset-btn")
 const downloadBtn = document.querySelector("#download-btn")
+const presetsCotainer = document.querySelector(".presets")
 
 
 let file = null
@@ -210,4 +211,134 @@ downloadBtn.addEventListener("click", () => {
     link.download = "edited-image.png"
     link.href = imageCanvas.toDataURL()
     link.click()
+})
+
+
+const presets = {
+  normal: {
+    brightness: 100,
+    contrast: 100,
+    satruration: 100,
+    hueRotation: 0,
+    blur: 0,
+    grayscale: 0,
+    sepia: 0,
+    opacity: 100,
+    invert: 0,
+  },
+
+  drama: {
+    brightness: 110,
+    contrast: 160,
+    satruration: 120,
+    hueRotation: 0,
+    blur: 0,
+    grayscale: 10,
+    sepia: 10,
+    opacity: 100,
+    invert: 0,
+  },
+
+  vintage: {
+    brightness: 105,
+    contrast: 90,
+    satruration: 80,
+    hueRotation: 20,
+    blur: 0,
+    grayscale: 20,
+    sepia: 40,
+    opacity: 100,
+    invert: 0,
+  },
+
+  oldSchool: {
+    brightness: 95,
+    contrast: 110,
+    satruration: 70,
+    hueRotation: 15,
+    blur: 0,
+    grayscale: 30,
+    sepia: 50,
+    opacity: 100,
+    invert: 0,
+  },
+
+  cool: {
+    brightness: 100,
+    contrast: 110,
+    satruration: 120,
+    hueRotation: 200,
+    blur: 0,
+    grayscale: 0,
+    sepia: 0,
+    opacity: 100,
+    invert: 0,
+  },
+
+  warm: {
+    brightness: 110,
+    contrast: 100,
+    satruration: 115,
+    hueRotation: 30,
+    blur: 0,
+    grayscale: 0,
+    sepia: 20,
+    opacity: 100,
+    invert: 0,
+  },
+
+  fade: {
+    brightness: 110,
+    contrast: 80,
+    satruration: 70,
+    hueRotation: 0,
+    blur: 1,
+    grayscale: 15,
+    sepia: 10,
+    opacity: 100,
+    invert: 0,
+  },
+
+  noir: {
+    brightness: 100,
+    contrast: 140,
+    satruration: 0,
+    hueRotation: 0,
+    blur: 0,
+    grayscale: 100,
+    sepia: 0,
+    opacity: 100,
+    invert: 0,
+  },
+
+  dreamy: {
+    brightness: 120,
+    contrast: 90,
+    satruration: 110,
+    hueRotation: 10,
+    blur: 3,
+    grayscale: 0,
+    sepia: 10,
+    opacity: 100,
+    invert: 0,
+  }
+};
+
+Object.keys(presets).forEach(presetName =>{
+  const presetButton = document.createElement("button")
+  presetButton.classList.add("btn")
+  presetButton.innerText = presetName
+  presetsCotainer.appendChild(presetButton)
+
+  presetButton.addEventListener("click", ()=>{
+    const preset = presets[presetName]
+    
+    Object.keys(preset).forEach(filterName => {
+      filters[filterName].value = preset[filterName]
+    })
+
+    applyFilters()
+    filtersContainer.innerHTML = ""
+    createFilters()
+  })
 })
